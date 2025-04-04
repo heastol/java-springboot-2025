@@ -417,6 +417,85 @@
 - 추가로 학습할 내용
 - 다향성, 상속, 캡슐화, 추상화
 
-#### 문자열, 시간타입 핸들링
+#### 문자열 핸들링
 - String
     - 컴퓨터 -> 숫자, 사람 -> 문자
+
+#### 원시타입의 클래스
+- int, double, float, byte 등 소문자 타입의 C와 같은 예전언어를 배운사람의 편의성을 취해서 추가한 기능
+- Integer, Double, Float, Byte 등 대문자로 시작하는 타입이 진짜 Java 클래스 타입
+- 제네릭을 쓸 때는 클래스타입만 허용
+
+
+#### 자료구조
+- 다수의 데이터를 저장, 관리하기 위한 목적으로 나온것 - 자료구조
+- 배열 : 다수의 데이터를 저장, 관리하기 위해 최초로 개발
+- 배열의 단점을 개선 : 리스트, 맵, 튜플, 딕셔너리, 그래프, 트리...
+- 배열보다 데이터 사이즈가 커지지만 속도는 개선
+- 이런 자료구조를 `Java 컬렉션 프레임워크`라고 지칭
+
+
+#### Java 컬렉션 프레임워크
+
+<img src = "./image/sb0002.png" width = "750">
+
+- List, Queue : 순서가 있는 데이터 집합. 데이터 중복 허용
+- Set : 순서가 없는 데이터 집합. 데이터 중복 허용X
+- Map : 키와 값의 쌍의 데이터 집합. 순서X, 키중복X, 값중복O
+
+#### Collection 인터페이스
+- List, Queue, Set 인터페이스의 상위 인터페이스
+- 리스트 인터페이스
+    - ArrayList, LinkedList, Vector
+
+    ```java
+    ArrayList<String> list = new ArrayList<>(); // 권장안함
+    Collection<String> list = new ArrayList<>(); // 일반적이지 않음
+    List<String> list = new ArrayList<>(); // 권장! 
+    ```
+
+- 셋 인터페이스
+    - HashTable
+
+- 맵 인터페이스
+    - HashMap
+
+- [JAVA문법실습](./day04/spring03/src/main/java/com/dongho98/spring03/Spring03Application.java)
+
+#### 람다식
+- 함수형 프로그래밍 언어의 특징을 객체지향 언어에 녹여넣은 것
+- 익명 함수로 부르기도 함
+- 코드의 간결성 : 코딩 구문이 확 줄어듬
+
+    ```java
+    // 기존방식
+    [접근제어자] 리턴타입 메서드명(매개변수, ...){
+        코드 블럭;
+    }
+
+    // 예시
+    public String helloJava() {
+        return "Hello, Java!";
+    }
+
+    // 람다식
+    (매개변수, ...) -> {코드블럭;}
+
+    // 예시
+    () -> "Hello, Java!"; // 한 번 실행되고 끝남.
+    ```
+
+#### 함수형 인터페이스
+- 객체지향 언어인 Java에서 함수형 처리를 위해서 함수형 인터페이스가 필요
+- 인터페이스 내에 하나의 추상메서드만 갖도록 제한해줌
+- @FunctionalInterface 어노테이션을 사용 권장
+
+#### 스트림 API
+- 함수형 인터페이스로 데이터를 추상화하고 처리하는 자주 사용되는 함수를 정의해 놓은 것
+- 특징
+    - 원본 데이터를 변경안함
+    - 일회성
+    - 내부 반복으로 작업처리
+- 스트림API가 쉽지는 않지만, 코딩량을 현저하게 줄일 수 있음.
+
+- [JAVA문법실습](./day04/spring04/src/main/java/com/dongho98/spring04/Spring04Application.java)
