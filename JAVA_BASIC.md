@@ -418,8 +418,46 @@
 - 다향성, 상속, 캡슐화, 추상화
 
 #### 문자열 핸들링
+- [java.lang.String](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html)
 - String
-    - 컴퓨터 -> 숫자, 사람 -> 문자
+    - 컴퓨터 -> 숫자, 사람 -> 문자    
+    
+- [Java문법실습](./day03/spring04/src/main/java/com/hugo83/spring04/Spring04Application.java)
+
+#### 시간타입 핸들링
+- [java.time](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/time/package-summary.html)
+- time
+    - 날짜와 시간을 처리할 때 사용
+
+- [Java문법실습](./day04/spring01/src/main/java/com/hugo83/spring01/Spring01Application.java)
+
+
+#### 제네릭
+- 파이썬과 다르게 Java는 단일형만 배열이나 컬렉션에서 사용할 수 있음
+- Object 타입으로 지정하면 무슨 형이든 다 할당 가능
+- `다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스를 컴파일 과정에서 안전하게 타입체크를 해주는 기능`
+- 장점
+    - 객체 생성시 개발자가 원하는 타입을 지정가능
+    - 타입 안정성 제공
+    - 의도하지 않은 타입의 객체가 저장되는 것을 차단, 오류방지
+    - 형변환의 번거로움이 없음
+
+
+```java
+class 클래스명<T> {
+    T 변수;
+    // getter/setter
+}
+
+public static void main(String[] args) {
+    클래스명<String> 변수명 = new 클래스명<>();
+}
+```
+
+- T는 가변타입. String, int, double 다 지정가능
+- T, P, K, TP 등 가변타입의 명칭은 편하게 지정
+
+- [Java문법실습](./day04/spring02/src/main/java/com/hugo83/spring02/Spring02Application.java)
 
 #### 원시타입의 클래스
 - int, double, float, byte 등 소문자 타입의 C와 같은 예전언어를 배운사람의 편의성을 취해서 추가한 기능
@@ -499,3 +537,58 @@
 - 스트림API가 쉽지는 않지만, 코딩량을 현저하게 줄일 수 있음.
 
 - [JAVA문법실습](./day04/spring04/src/main/java/com/dongho98/spring04/Spring04Application.java)
+
+
+#### StringBuilder
+- String 객체는 불변의 성질. 한 번 생성되면 변경불가
+- 연산자로 수정을 하면 기존 메모리는 두고, 다시 String객체를 생성
+- 이를 해결하고자 하기 위해 만든 것 - StringBuilder
+- 리스트와 유사. 문자열 처리때문에 메모리 문제, 성능문제가 발생하면 StringBuilder, StringBuffer 사용 권장
+
+    ```java
+    StringBuilder sb = new StringBuilder();
+    sb.append("Hello");
+    sb.append("Java!");
+    // insert(), delete()
+    ```
+
+- [Java문법실습](./day05/spring01/src/main/java/com/dongho98/spring01/Spring01Application.java)
+
+#### GC(Garbage Collection)
+- C등 절차적 언어에서는 객체를 생성해서 메모리를 사용하면, 개발자가 직접 해제해줘야 함
+- 메모리 누수가 발생
+- 객체지향 언어에서는 GC를 만들어서 메모리를 언어가 직접 핸들링 처리
+
+#### 파일입출력
+- 파일을 읽고 쓰는 작업
+- 파일 쓰기에 `FileInputStream`, `FileOutputStream`, `FileWriter`, `PrintWriter` 등의 클래스 사용
+- 입출력 예외가 발생할 수 있기 때문에 클래스나 메서드에 `throws IOExecption`을 추가해야 함
+- 파일읽기에 `FileInputStream`, `BufferedReader` 클래스 사용
+
+- [Java문법실습](./day05/spring02/src/main/java/com/dongho98/spring02/Spring02Application.java)
+
+
+#### 어노테이션
+- 한글로 주석이지만, #, //, /**/ 소스에 영향을 미치지 않는 주석과 다름
+- 자바 소스에 추가해서 여러가지 기능을 수행하는 메타데이터 일종
+- @로 시작, JDK 1.5 이상부터 사용가능
+- 클래스 파일에 같이 포함되어 JVM 작동시 처리
+- 클래스, 메서드 바로 위에 작성. 코드와 설정을 관리할 수 있게 도와주는 역할
+
+#### 1. @Override
+- 오버라이드를 올바르게 했는지 컴파일러 체크
+- 상속, 인터페이스 구현 시 사용
+
+#### 2 @Deprecated
+- 앞으로 다음버전에서 삭제될 수 있음. 사용하지 말것을 권유하는 체크
+
+<img src="./image/sb0011.png" width = "700">
+
+- 되도록이면 이 함수는 사용하지 말것
+
+#### 3. @FunctionalInterface
+- 함수형 인터페이스에 붙여서, 컴파일러가 올바르게 작성되었는지 체크
+
+#### 4. @SuppressWarnings
+- 컴파일러의 경고메시지가 표시되지 않음
+
