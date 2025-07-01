@@ -562,15 +562,17 @@
   2. main.css : 전체에서 사용할 css 파일
   3. Bootstrap 적용
     - https://getbootstrap.com Current v5.3.7 download 클릭
-    - 
+    - https://github.com/twbs/icons/releases/tag/v1.13.1
   4. board_detail.html : 부트스트랩 적용
 
 5. 전체 HTML에 디자인 적용
   1. build.gradle에 thymeleaf-layout 의존성 추가
     ```gradle
-    
+    // Thymeleaf layout 의존성 추가. 250701. 신규추가. 이동호.
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     ```
   2. 레이아웃 템플릿 페이지 작성
+
   3. boart_list.html 에 적용
 
   https://github.com/user-attachments/assets/1480fecc-e739-41d5-bb8a-840ba924f8b7
