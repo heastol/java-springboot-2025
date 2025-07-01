@@ -572,3 +572,9 @@
     ```
   2. 레이아웃 템플릿 페이지 작성
   3. boart_list.html 에 적용
+
+  https://github.com/user-attachments/assets/1480fecc-e739-41d5-bb8a-840ba924f8b7
+
+
+
+  
