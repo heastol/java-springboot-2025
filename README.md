@@ -567,6 +567,7 @@
 
 5. 전체 HTML에 디자인 적용
   1. build.gradle에 thymeleaf-layout 의존성 추가
+  
     ```gradle
     // Thymeleaf layout 의존성 추가. 250701. 신규추가. 이동호.
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
